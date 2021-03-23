@@ -1,0 +1,34 @@
+{
+  "name": "proteo/pin-php",
+  "description": "PHP library for Pinpayments.com API.",
+  "type": "library",
+  "homepage": "https://github.com/proteo/pin-php",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Proteo",
+      "email": "me@proteo.dev"
+    }
+  ],
+  "keywords": [
+    "payment",
+    "payments",
+    "pin",
+    "gateway"
+  ],
+  "require": {
+    "php": ">=7.3.0",
+    "guzzlehttp/guzzle": "^6.5",
+    "guzzlehttp/psr7": "^1.7",
+    "symfony/options-resolver": "^5.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  },
+  "autoload": {
+    "psr-4": {"Pin\\": "src"}
+  },
+  "autoload-dev": {
+    "psr-4": {"Pin\\Tests\\": "tests"}
+  }
+}
