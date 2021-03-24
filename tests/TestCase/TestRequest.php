@@ -48,24 +48,40 @@ class TestRequest extends TestCase
     }
 
     /**
+     * Helper function, gets a JSON fixture.
+     *
+     * @param string $name
+     *   A string matching the name of a .json file in the Fixture directory.
+     *
+     * @return string
+     *   A JSON enconded string.
+     */
+    protected function getJsonFixture(string $name): string
+    {
+        $json = '';
+        $filename = sprintf('%s/Fixture/%s.json', dirname(dirname(__FILE__)), $name);
+        if (file_exists($filename)) {
+            $json = file_get_contents($filename);
+        }
+        return $json;
+    }
+
+    /**
      * Prepares a mock request.
      *
      * @param int $status_code
-     * @param null $data
+     *   The expected status code.
+     * @param string|null $body
+     *   Optional JSON string with the response body.
      *
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function mockResponse(int $status_code, $data = null): ResponseInterface
+    public function mockResponse(int $status_code, ?string $body = null): ResponseInterface
     {
-        // Pin API returns JSON strings as response.
-        if (!empty($data) && (is_array($data) || is_object($data))) {
-            $data = json_encode($data);
-        }
-
         // Set stream
         $stream = $this->createMock('Psr\Http\Message\StreamInterface');
         $stream->method('getContents')
-            ->willReturn($data);
+            ->willReturn($body);
 
         // Set response
         $response = $this->createMock('Psr\Http\Message\ResponseInterface');
@@ -95,8 +111,8 @@ class TestRequest extends TestCase
     /**
      * Prepares and executes a mock submission.
      *
-     * @param array $data
-     *   Data to be returned by the request.
+     * @param string $json
+     *   JSON string to be returned as body of the request.
      * @param \Pin\Request\Base $request
      *  The request to be sent.
      * @param int $status_code
@@ -105,9 +121,9 @@ class TestRequest extends TestCase
      * @return object
      *   Request response object.
      */
-    public function mockSubmission(array $data, Base $request, int $status_code = 200): object
+    public function mockSubmission(string $json, Base $request, int $status_code = 200): object
     {
-        $response = $this->mockResponse($status_code, $data);
+        $response = $this->mockResponse($status_code, $json);
         $client = $this->mockClient($response);
         $request->setHttpClient($client);
         return $this->handler->submit();

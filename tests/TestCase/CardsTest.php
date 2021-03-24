@@ -40,7 +40,7 @@ class CardsTest extends TestRequest
         static::assertEquals($uri_endpoint, $request->getPath());
 
         // Test submission.
-        $response_data = $this->getFixture('CardCreateResponse');
+        $response_data = $this->getJsonFixture('CardCreateResponse');
         $request_data = $this->mockSubmission($response_data, $request, 201);
         static::assertInstanceOf('stdClass', $request_data);
         static::assertEquals(201, $request_data->status_code);
