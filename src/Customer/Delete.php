@@ -24,13 +24,6 @@ class Delete extends DeleteRequest
     public const URI = '/customers/__TOKEN__';
 
     /**
-     * The unique token of the customer to delete.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Delete Pin customer class constructor.
      *
      * @param string $token

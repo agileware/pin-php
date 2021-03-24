@@ -27,13 +27,6 @@ class Reactivate extends PutRequest
     public const URI = '/subscriptions/__TOKEN__/reactivate';
 
     /**
-     * The unique token of the subscription to reactivate.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Pin subscription reactivation class constructor.
      *
      * @param string $token

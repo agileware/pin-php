@@ -35,6 +35,13 @@ abstract class Base extends Request
     protected $httpClient;
 
     /**
+     * Unique resource token to be used in the URI.
+     *
+     * @var string
+     */
+    protected $token;
+
+    /**
      * Options returned by OptionsResolver::resolve().
      *
      * @var array

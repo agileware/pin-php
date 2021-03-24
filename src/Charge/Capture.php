@@ -23,13 +23,6 @@ class Capture extends PutRequest
     public const URI = '/charges/__TOKEN__/capture';
 
     /**
-     * The charge token.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Capture charge class constructor.
      *
      * @param string $token

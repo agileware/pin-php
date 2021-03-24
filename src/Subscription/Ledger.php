@@ -24,13 +24,6 @@ class Ledger extends GetRequest
     public const URI = '/subscriptions/__TOKEN__/ledger';
 
     /**
-     * The unique token of the subscription.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Pin subscription ledger class constructor.
      *
      * @param string $token

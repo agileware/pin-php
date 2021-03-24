@@ -23,13 +23,6 @@ class Details extends GetRequest
     public const URI = '/plans/__TOKEN__';
 
     /**
-     * The plan token.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Plan details class constructor.
      *
      * @param string $token

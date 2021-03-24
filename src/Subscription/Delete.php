@@ -23,13 +23,6 @@ class Delete extends DeleteRequest
     public const URI = '/subscriptions/__TOKEN__';
 
     /**
-     * The unique token of the subscription to cancel.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Delete Pin subscription class constructor.
      *
      * @param string $token

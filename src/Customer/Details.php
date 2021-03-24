@@ -23,13 +23,6 @@ class Details extends GetRequest
     public const URI = '/customers/__TOKEN__';
 
     /**
-     * The customer token.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Customer details class constructor.
      *
      * @param string $token

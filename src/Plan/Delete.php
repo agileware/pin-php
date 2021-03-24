@@ -23,13 +23,6 @@ class Delete extends DeleteRequest
     public const URI = '/plans/__TOKEN__';
 
     /**
-     * The unique token of the plan to delete.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Delete Pin plan class constructor.
      *
      * @param string $token

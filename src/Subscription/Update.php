@@ -24,13 +24,6 @@ class Update extends PutRequest
     public const URI = '/subscriptions/__TOKEN__';
 
     /**
-     * The subscription token.
-     *
-     * @var null
-     */
-    protected $token;
-
-    /**
      * Pin subcription update class constructor.
      *
      * @param string $token

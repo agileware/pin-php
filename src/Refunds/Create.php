@@ -24,13 +24,6 @@ class Create extends PostRequest
     public const URI = '/charges/__TOKEN__/refunds';
 
     /**
-     * The card token.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Refund card class constructor.
      *
      * @param $token

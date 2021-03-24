@@ -24,13 +24,6 @@ class Update extends PutRequest
     public const URI = '/customers/__TOKEN__';
 
     /**
-     * The unique token of the customer to update.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Update Pin customer class constructor.
      *
      * @param string $token

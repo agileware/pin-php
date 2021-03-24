@@ -23,13 +23,6 @@ class Delete extends DeleteRequest
     public const URI = '/webhook_endpoints/__TOKEN__';
 
     /**
-     * The unique token of the webhook endpoint to update.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Delete Pin webhook endpoint class constructor.
      *
      * @param string $token

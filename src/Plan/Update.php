@@ -24,13 +24,6 @@ class Update extends PutRequest
     public const URI = '/plans/__TOKEN__';
 
     /**
-     * The unique token of the plan to update.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Update Pin plan constructor.
      *
      * @param string $token

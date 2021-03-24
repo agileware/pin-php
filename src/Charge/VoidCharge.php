@@ -23,13 +23,6 @@ class VoidCharge extends PutRequest
     public const URI = '/charges/__TOKEN__/void';
 
     /**
-     * The charge token.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Void charge class constructor.
      *
      * @param string $token

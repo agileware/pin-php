@@ -23,13 +23,6 @@ class Details extends GetRequest
     public const URI = '/webhook_endpoints/__TOKEN__';
 
     /**
-     * The unique token of the webhook endpoint to update.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Pin webhook endpoint details class constructor.
      *
      * @param string $token

@@ -23,13 +23,6 @@ class Details extends GetRequest
     public const URI = '/charges/__TOKEN__';
 
     /**
-     * The charge token.
-     *
-     * @var string
-     */
-    protected $token;
-
-    /**
      * Charge details class constructor.
      *
      * @param string $token
