@@ -227,7 +227,7 @@ abstract class Base extends Request
      *
      * @return array
      */
-    private function getRequestData(): array
+    public function getRequestData(): array
     {
         // Every request needs authorization information.
         $data = [
@@ -235,7 +235,7 @@ abstract class Base extends Request
         ];
 
         // Append other options if available.
-        if (!count($this->options)) {
+        if (count($this->options)) {
             $data += $this->getData();
         }
 

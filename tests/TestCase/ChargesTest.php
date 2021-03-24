@@ -24,11 +24,9 @@ class ChargesTest extends TestRequest
         static::assertEquals($uri_endpoint, $request->getUri()->getPath());
 
         // Test sendable  data.
-        $data = $request->getData();
-        // PUT requests must use the "form_params" key to append sendable data.
-        static::assertArrayHasKey($data_key, $data);
+        $data = $request->getRequestData();
         // This endpoint accepts no additional data.
-        static::assertEmpty($data[$data_key]);
+        static::assertArrayNotHasKey($data_key, $data);
 
         // Test URI path.
         $path = str_replace('__TOKEN__', $charge_token, $uri_endpoint);
@@ -58,7 +56,7 @@ class ChargesTest extends TestRequest
         static::assertEqualsCanonicalizing($options, $request_options);
 
         // Test sendable  data.
-        $data = $request->getData();
+        $data = $request->getRequestData();
         // POST requests must use the "form_params" key to append sendable data.
         static::assertArrayHasKey($data_key, $data);
         // Just ensuring request values have been assigned to the proper key.

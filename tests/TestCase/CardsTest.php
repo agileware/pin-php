@@ -30,7 +30,7 @@ class CardsTest extends TestRequest
         static::assertEqualsCanonicalizing($options, $request_options);
 
         // Test sendable  data.
-        $data = $request->getData();
+        $data = $request->getRequestData();
         // POST requests must use the "form_params" key to append sendable data.
         static::assertArrayHasKey($data_key, $data);
         // Ensure that request values have been assigned to the proper key.
