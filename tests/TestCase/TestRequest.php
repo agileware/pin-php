@@ -34,17 +34,15 @@ class TestRequest extends TestCase
      * Helper function, gets fixture contents.
      *
      * @param string $name
-     *   A string matching the name of a file in the Fixture directory. The file
-     *   must contain a function with the exact same name.
+     *   A string matching the name of a file in the Fixture directory.
      *
      * @return mixed
-     *   Whatever the fixture function call returns.
+     *   Whatever the fixture returns.
      */
     protected function getFixture(string $name)
     {
-        $path = sprintf('%s/Fixture/%s.php', dirname(dirname(__FILE__)), $name);
-        require_once $path;
-        return $name();
+        $filename = sprintf('%s/Fixture/%s.php', dirname(dirname(__FILE__)), $name);
+        return require_once $filename;
     }
 
     /**
