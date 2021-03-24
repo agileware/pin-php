@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Pin;
 
 use GuzzleHttp\Client as HttpClient;
-use Psr\Http\Message\RequestInterface;
+use Pin\Request\Base;
 
 /**
  * Pin handler class.
@@ -26,7 +26,7 @@ class Handler
     /**
      * The request object.
      *
-     * @var \Psr\Http\Message\RequestInterface
+     * @var \Pin\Request\Base
      */
     private $request;
 
@@ -44,10 +44,10 @@ class Handler
     /**
      * Sets the request instance.
      *
-     * @param \Psr\Http\Message\RequestInterface $request
+     * @param \Pin\Request\Base $request
      *   A request instance.
      */
-    public function setRequest(RequestInterface $request)
+    public function setRequest(Base $request)
     {
         $this->request = $request;
         $this->request->setConfig($this->config);
@@ -78,9 +78,9 @@ class Handler
     /**
      * Gets the request instance.
      *
-     * @return \Psr\Http\Message\RequestInterface
+     * @return \Pin\Request\Base
      */
-    public function getRequest(): RequestInterface
+    public function getRequest(): Base
     {
         return $this->request;
     }
