@@ -29,6 +29,7 @@ composer install
     - PUT /charges/`charge-token`/void
     - PUT /charges/`charge-token`/capture
     - GET /charges
+    - GET /charges/search
     - GET /charges/`charge-token`
 - **Customers**
     - POST /customers
