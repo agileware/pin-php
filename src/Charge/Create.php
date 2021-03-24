@@ -6,6 +6,7 @@ namespace Pin\Charge;
 
 use Pin\Configuration;
 use Pin\Request\Post as PostRequest;
+use Symfony\Component\OptionsResolver\Exception\InvalidArgumentException;
 use Symfony\Component\OptionsResolver\Exception\MissingOptionsException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -68,7 +69,16 @@ class Create extends PostRequest
             empty($this->options['card_token']) &&
             empty($this->options['customer_token'])
         ) {
-            throw new MissingOptionsException('Must provide one of the following options: card (array), card_token or customer_token.');
+            throw new MissingOptionsException('Missing parameter: must provide a card, card_token or customer_token option.');
+        }
+
+        // Prevent passing more than one payment method.
+        if (
+            (isset($this->options['card']) && isset($this->options['card_token'])) ||
+            (isset($this->options['card']) && isset($this->options['customer_token'])) ||
+            (isset($this->options['card_token']) && isset($this->options['customer_token']))
+        ) {
+            throw new InvalidArgumentException('Too many parameters: must provide only one of card, card_token or customer_token options.');
         }
     }
 }

@@ -24,8 +24,6 @@ function ChargeCreate(): array
             'address_state' => 'WA',
             'address_country' => 'Australia',
         ],
-        'card_token' => '',
-        'customer_token' => '',
         'capture' => true,
         'metadata' => [
             'option_1' => 'Metadata option 1',
