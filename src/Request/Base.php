@@ -106,14 +106,19 @@ abstract class Base extends Request
             );
         } catch (GuzzleException $e) {
             $response = $e->getResponse();
-            $message = sprintf(
-                'Error %s (%s): "%s %s" resulted in response: %s',
-                $response->getStatusCode(),
-                $response->getReasonPhrase(),
-                $this->getMethod(),
-                $this->getURL(),
-                $response->getBody()
-            );
+            if (!empty($response)) {
+                $message = sprintf(
+                    'Error %s (%s): "%s %s" resulted in response: %s',
+                    $response->getStatusCode(),
+                    $response->getReasonPhrase(),
+                    $this->getMethod(),
+                    $this->getURL(),
+                    $response->getBody()
+                );
+            }
+            else {
+                $message = $e->getMessage();
+            }
             throw new RequestException($message, $this, $response);
         }
 
