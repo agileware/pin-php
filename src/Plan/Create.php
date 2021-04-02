@@ -38,20 +38,24 @@ class Create extends PostRequest
                 'interval_unit',
             ])
             ->setDefined([
+                'intervals',
                 'setup_amount',
                 'trial_amount',
                 'trial_interval',
                 'trial_interval_unit',
+                'customer_permissions',
             ])
             ->setAllowedTypes('name', 'string')
             ->setAllowedTypes('amount', 'numeric')
             ->setAllowedTypes('currency', 'string')
             ->setAllowedTypes('interval', 'numeric')
             ->setAllowedTypes('interval_unit', 'string')
+            ->setAllowedTypes('intervals', 'numeric')
             ->setAllowedTypes('setup_amount', 'numeric')
             ->setAllowedTypes('trial_amount', 'numeric')
             ->setAllowedTypes('trial_interval', 'numeric')
-            ->setAllowedTypes('interval_unit', 'string')
+            ->setAllowedTypes('trial_interval_unit', 'string')
+            ->setAllowedTypes('customer_permissions', 'array')
             ->setAllowedValues('currency', Configuration::supportedCurrencies());
     }
 }
